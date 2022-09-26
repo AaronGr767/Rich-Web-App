@@ -1,1 +1,19 @@
-body {background-color: coral;}
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-columns {
+    border: 1px solid black;
+  }
+ 
+  @media screen and (max-width: 720px) {
+    .grid-container { 
+        grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media screen and (max-width: 360px) {
+    .grid-container { 
+        grid-template-columns:repeat(1, 1fr); }
+  }
+  
