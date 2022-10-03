@@ -1,10 +1,22 @@
   .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    border: 1px solid black;
   }
 
   .grid-columns {
     border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    margin: 5px;
+
+  }
+
+  .grid-subcolumns {
+    border: 1px solid black;
+    margin: 5px;
   }
  
   @media screen and (max-width: 720px) {
@@ -14,6 +26,16 @@
 
   @media screen and (max-width: 360px) {
     .grid-container { 
+        grid-template-columns:repeat(1, 1fr); }
+  }
+
+  @media screen and (max-width: 720px) {
+    .grid-columns { 
+        grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media screen and (max-width: 360px) {
+    .grid-columns { 
         grid-template-columns:repeat(1, 1fr); }
   }
   
