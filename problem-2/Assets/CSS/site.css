@@ -8,7 +8,7 @@
     padding: 5px;
     margin-bottom: 5px;
 }
-#NoteContent{
+#NoteCreationPopUp{
     background-color: antiquewhite;
     display: none;
     margin: auto;
@@ -37,7 +37,7 @@
     right: 0;
 }
 
-#creating-note {
+#NoteCreationContent {
     width: 75%;
     margin: auto;
 }

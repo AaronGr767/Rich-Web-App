@@ -1,4 +1,4 @@
-let formVisibilty = document.getElementById('NoteContent');
+let formVisibilty = document.getElementById('NoteCreationPopUp');
     formVisibilty.style.display = 'none';
 
     document.querySelector("form").reset();
@@ -9,7 +9,7 @@ let create_btn = document.getElementById('create-note-button');
 let add_btn = document.getElementById('add-note-button');
 
 create_btn.addEventListener('click', () => {
-  let formVisibilty = document.getElementById('NoteContent');
+  let formVisibilty = document.getElementById('NoteCreationPopUp');
 
   if (formVisibilty.style.display == 'none') {
     formVisibilty.style.display = 'block';
@@ -47,7 +47,7 @@ add_btn.addEventListener('click', () => {
     
     document.querySelector("form").reset();
 
-    let formVisibilty = document.getElementById('NoteContent');
+    let formVisibilty = document.getElementById('NoteCreationPopUp');
     formVisibilty.style.display = 'none';
 
     showNotes();
@@ -81,7 +81,7 @@ function showNotes() {
   }
 
   function editNote(index) {
-    let formVisibilty = document.getElementById('NoteContent');
+    let formVisibilty = document.getElementById('NoteCreationPopUp');
     formVisibilty.style.display = 'block';
 
     let name = document.getElementById('name');
