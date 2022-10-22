@@ -11,7 +11,7 @@ add_btn.addEventListener('click', () => {
 
     var nameTest = /^(?!.{21})[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/;
     var phoneTest = /^\d{10}$/;
-    var emailTest = /^(?!.{41})[a-z0-9]+(?:\.[a-z0-9]+)*@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-zA-Z]{2,6}$/;
+    var emailTest = /^(?!.{40})[a-z0-9]+(?:\.[a-z0-9]+)*@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-zA-Z]{2,6}$/;
     
     if(fName.value.length == 0 || fNumber.value.length == 0 || fEmail.value.length == 0){
 
@@ -52,6 +52,8 @@ add_btn.addEventListener('click', () => {
                             <button id="error-ok-button" onclick="hideErrorMessage()">OK</button>
                         </div>`;
                 document.getElementById('errorPlaceholder').innerHTML = html;
+            } else {
+                addContact();
             }
 
 });
@@ -69,3 +71,28 @@ function showErrorMessage(){
 
         return errorHTML;
 };
+
+function addContact(){
+    let fName = document.getElementById('formName');
+    let fNumber = document.getElementById('formNumber');
+    let fEmail = document.getElementById('formEmail');
+
+    let contacts = localStorage.getItem("contactStore");
+
+
+    if (contacts == null) {
+        contactsIndex = [];
+    }else{
+        noteIndex = JSON.parse(localStorage.getItem(contacts));
+    }
+    
+
+    let savedContact = {
+        formName: fName.value,
+        formNumber: fNumber.value,
+        formEmail: fEmail.value
+    }
+    
+    contactsIndex.push(savedContact);
+    localStorage.setItem('contacts', JSON.stringify(savedContact));
+}
