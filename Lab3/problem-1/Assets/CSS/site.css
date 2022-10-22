@@ -1,4 +1,19 @@
+#contactInfoForm{
+    margin: auto;
+    width: 75%;
+    background-color: lightblue;
+    border: 2px solid lightsteelblue;
+    padding: 2%;
+    border-radius: 7px;
+    display: flex;
+}
 
+.formDetails{
+    flex: 1;
+    margin-right: 5px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+}
 
 #errorPlaceholder{
     background-color: antiquewhite;
@@ -6,6 +21,20 @@
     display: none;
 }
 
-table, th, td{
-    border: 1px solid blacks;
+#contactPlaceholder{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#contactsTable{
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+th{
+    font-weight: bold;
+}
+
+th, td{
+    border: 1px solid black;
 }
