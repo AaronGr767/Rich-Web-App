@@ -1,5 +1,7 @@
 let add_btn = document.getElementById('add-button');
 
+showContacts();
+
 document.getElementById('formName').value = "";
 document.getElementById('formNumber').value = "";
 document.getElementById('formEmail').value = "";
@@ -73,7 +75,7 @@ function addContact(){
     if (contacts == null) {
         contactsIndex = [];
     }else{
-        noteIndex = JSON.parse(localStorage.getItem(contacts));
+        contactsIndex = JSON.parse(contacts);
     }
     
 
@@ -84,5 +86,32 @@ function addContact(){
     }
     
     contactsIndex.push(savedContact);
-    localStorage.setItem('contacts', JSON.stringify(savedContact));
+    localStorage.setItem('contactStore', JSON.stringify(contactsIndex));
+
+    showContacts();
+}
+
+function showContacts() {
+    let contacts = localStorage.getItem("contactStore");
+
+    if (contacts == null) {
+        contactsIndex = [];
+      } else {
+        contactsIndex = JSON.parse(contacts);
+    }
+
+    let html = "";
+    
+    contactsIndex.forEach(function(element, index) {
+        html += ` <div class="DisplayedNote">
+                    <div class="DisplayedNoteContent">
+                        <p class="NameText">${element.formName}</p>
+                        <p class="ContentText">${element.formNumber}</p>
+                        <p class="ContentText">${element.formEmail}</p>
+                    </div>
+	            </div>`;
+    });
+    
+    let contactHTML = document.getElementById("contactPlaceholder");
+    contactHTML.innerHTML = html;
 }
