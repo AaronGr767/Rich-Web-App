@@ -112,4 +112,30 @@ function showContacts() {
     
     let contactHTML = document.getElementById("contactsInfo");
     contactHTML.innerHTML = html;
+};
+
+function sortAlpha(){
+        var contacts, rows, switching, i, comp1, comp2, switched;
+        contacts = document.getElementById("contactsTable");
+        switching = true;
+
+        while (switching) {
+          switching = false;
+          rows = contacts.rows;
+
+          for (i = 1; i < (rows.length - 1); i++) {
+            switched = false;
+            comp1 = rows[i].getElementsByTagName("TD")[0];
+            comp2 = rows[i + 1].getElementsByTagName("TD")[0];
+
+            if (comp1.innerHTML.toLowerCase() > comp2.innerHTML.toLowerCase()) {
+              switched = true;
+              break;
+            }
+          }
+          if (switched) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+          }
+        }
 }
