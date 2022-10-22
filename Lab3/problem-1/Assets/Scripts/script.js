@@ -103,15 +103,13 @@ function showContacts() {
     let html = "";
     
     contactsIndex.forEach(function(element, index) {
-        html += ` <div class="DisplayedNote">
-                    <div class="DisplayedNoteContent">
-                        <p class="NameText">${element.formName}</p>
-                        <p class="ContentText">${element.formNumber}</p>
-                        <p class="ContentText">${element.formEmail}</p>
-                    </div>
-	            </div>`;
+        html += `<tr>
+                    <td>${element.formName}</td>
+                    <td>${element.formNumber}</td>
+                    <td>${element.formEmail}</td>
+                </tr>`;
     });
     
-    let contactHTML = document.getElementById("contactPlaceholder");
+    let contactHTML = document.getElementById("contactsInfo");
     contactHTML.innerHTML = html;
 }

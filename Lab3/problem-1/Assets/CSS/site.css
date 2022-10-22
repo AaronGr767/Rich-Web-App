@@ -1,5 +1,11 @@
+
+
 #errorPlaceholder{
     background-color: antiquewhite;
     visibility: hidden;
     display: none;
+}
+
+table, th, td{
+    border: 1px solid blacks;
 }

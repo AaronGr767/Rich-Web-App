@@ -9,9 +9,9 @@
     </head>
 
     <body>
-        <h1>Problem 1 - Phone Directory</h1>
+        <h1>Phone Directory</h1>
         
-        <div id="contactInfoForm" method="post">
+        <div id="contactInfoForm">
             <label>Name:</label>
             <input type="text" id="formName" name="formName">
             <label>Mobile:</label>
@@ -25,7 +25,20 @@
             <p>tester</p>
         </div>
 
-    <div id="contactPlaceholder"></div>
+    <div id="contactPlaceholder">
+        <table id="contactsTable">
+            <thead>
+            <tr>
+                <td>Contact Name:</td>
+                <td>Contact Number:</td>
+                <td>Contact Email:</td>
+            </tr>
+        </thead>
+        <tbody id="contactsInfo">
+
+        </tbody>
+        </table>
+    </div>
     
 
         <script src="Assets/Scripts/script.js"></script>
