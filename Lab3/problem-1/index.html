@@ -11,16 +11,19 @@
     <body>
         <h1>Problem 1 - Phone Directory</h1>
         
-        <form name="contactInfoForm" onsubmit="return validateForm()" method="post">
+        <div id="contactInfoForm" method="post">
             <label>Name:</label>
             <input type="text" id="formName" name="formName">
             <label>Mobile:</label>
             <input type="text" id="formNumber" name="formNumber">
             <label>Email:</label>
             <input type="email" id="formEmail" name="formEmail">
-            <input type="submit" value="Add Contact">
-            <input type="reset">
-        </form>
+            <input type="submit" value="Add Contact" id="add-button">
+        </div>
+
+        <div id="errorPlaceholder">
+            <p>tester</p>
+        </div>
 
         <script src="Assets/Scripts/script.js"></script>
     </body>
