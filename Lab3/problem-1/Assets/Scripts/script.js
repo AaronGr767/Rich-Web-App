@@ -13,17 +13,7 @@ add_btn.addEventListener('click', () => {
     var phoneTest = /^\d{10}$/;
     var emailTest = /^(?!.{40})[a-z0-9]+(?:\.[a-z0-9]+)*@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-zA-Z]{2,6}$/;
     
-    if(fName.value.length == 0 || fNumber.value.length == 0 || fEmail.value.length == 0){
-
-        showErrorMessage();
-
-        html = `<div id="errorMessage">
-                    <p>You must fill in all details first!</p>
-                    <button id="error-ok-button" onclick="hideErrorMessage()">OK</button>
-                </div>`;
-        document.getElementById('errorPlaceholder').innerHTML = html;
-
-        } else if (!fName.value.match(nameTest)) {
+     if (!fName.value.match(nameTest)) {
 
             showErrorMessage();
 
