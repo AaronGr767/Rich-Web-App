@@ -24,7 +24,7 @@ add_btn.addEventListener('click', () => {
                         <p>Name must be 20 characters or less and cannot contain special characters or numbers!</p>
                         <button id="error-ok-button" onclick="hideErrorMessage()">OK</button>
                     </div>`;
-        document.getElementById('errorPlaceholder').innerHTML = html;
+        document.getElementById('error').innerHTML = html;
 
     } else if (!fNumber.value.match(phoneTest)) { //Validates mobile number by comparing with suitable regex
 
@@ -34,7 +34,7 @@ add_btn.addEventListener('click', () => {
                             <p>Mobile number must only contain numbers and be 10 numbers long!</p>
                             <button id="error-ok-button" onclick="hideErrorMessage()">OK</button>
                         </div>`;
-        document.getElementById('errorPlaceholder').innerHTML = html;
+        document.getElementById('error').innerHTML = html;
 
     } else if (!fEmail.value.match(emailTest)) { //Validates email by comparing with suitable regex
 
@@ -44,23 +44,28 @@ add_btn.addEventListener('click', () => {
                             <p>Must be a valid email that is less than 40 characters long!</p>
                             <button id="error-ok-button" onclick="hideErrorMessage()">OK</button>
                         </div>`;
-        document.getElementById('errorPlaceholder').innerHTML = html;
+        document.getElementById('error').innerHTML = html;
     } else {
+        hideErrorMessage();//Hides error message if necessary
         addContact(); //If validation passed then procedd to function to add contact
+
+        document.getElementById('formName').value = "";
+        document.getElementById('formNumber').value = "";
+        document.getElementById('formEmail').value = "";
     }
 
 });
 
 //Hides pop up error message for contact info validation
 function hideErrorMessage() {
-    let errorHTML = document.getElementById('errorPlaceholder');
+    let errorHTML = document.getElementById('error');
     errorHTML.style.display = 'none';
     errorHTML.style.visibility = 'hidden';
 };
 
 //Shows pop up error message for contact info validation
 function showErrorMessage() {
-    let errorHTML = document.getElementById('errorPlaceholder');
+    let errorHTML = document.getElementById('error');
     errorHTML.style.display = 'block';
     errorHTML.style.visibility = 'visible';
 

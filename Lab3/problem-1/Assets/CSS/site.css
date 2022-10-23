@@ -8,17 +8,30 @@
     display: flex;
 }
 
-.formDetails {
+.form-details {
     flex: 1;
     margin-right: 5px;
     border: 2px solid lightgray;
     border-radius: 3px;
 }
 
-#errorPlaceholder {
-    background-color: antiquewhite;
+#error {
+    margin: auto;
+    width: 50%;
+    background-color: lightgray;
+    border: 2px solid red;
+    border-radius: 5px;
     visibility: hidden;
     display: none;
+    margin-top: 10px;
+}
+
+#errorMessage{
+    text-align: center;
+}
+
+#error-ok-button {
+    margin-bottom: 5px;
 }
 
 #contactPlaceholder {
