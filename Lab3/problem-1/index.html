@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Problem 1 - Phone Directory</title>
-        <link rel="stylesheet" type="text/css" href="Assets/CSS/site.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem 1 - Phone Directory</title>
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/site.css">
+</head>
 
-    <body>
-        <h1>Phone Directory</h1>
-        
-        <div id="contactInfoForm">
-            <input class="formDetails" type="text" id="formName" name="formName" placeholder="Contact Name">
-            <input class="formDetails" type="text" id="formNumber" name="formNumber" placeholder="Mobile Number">
-            <input class="formDetails" type="email" id="formEmail" name="formEmail" placeholder="Email">
-            <input type="submit" value="Add Contact" id="add-button">
-        </div>
+<body>
+    <h1>Phone Directory</h1>
 
-        <div id="errorPlaceholder">
-            <p>tester</p>
-        </div>
+    <div id="contactInfoForm">
+        <input class="formDetails" type="text" id="formName" name="formName" placeholder="Contact Name">
+        <input class="formDetails" type="text" id="formNumber" name="formNumber" placeholder="Mobile Number">
+        <input class="formDetails" type="email" id="formEmail" name="formEmail" placeholder="Email">
+        <input type="submit" value="Add Contact" id="add-button">
+    </div>
 
-        <div id="searchArea">
-            <label>Search contact by Mobile No:</label>
-            <input type="text" id="search-bar" onkeyup="searchNumber()">
-        </div>
+    <div id="errorPlaceholder">
+        <p>tester</p>
+    </div>
+
+    <div id="searchArea">
+        <label>Search contact by Mobile No:</label>
+        <input type="text" id="search-bar" onkeyup="searchNumber()">
+    </div>
 
     <div id="contactPlaceholder">
         <h4>Contacts Summary</h4>
         <table id="contactsTable">
             <thead>
-            <tr>
-                <th onclick="sortAlpha()">Name</th>
-                <th>Mobile</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody id="contactsInfo">
+                <tr>
+                    <th onclick="sortAlpha()">Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="contactsInfo">
 
-        </tbody>
+            </tbody>
         </table>
+        
         <div id="noResult">
             <p>No matching row for search term!</p>
         </div>
     </div>
-    
 
-        <script src="Assets/Scripts/script.js"></script>
-    </body>
+
+    <script src="Assets/Scripts/script.js"></script>
+</body>
 
 </html>
