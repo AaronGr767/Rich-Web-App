@@ -33,6 +33,7 @@
 
 th{
     font-weight: bold;
+    background-color: white;
 }
 
 th, td{
@@ -41,4 +42,18 @@ th, td{
 
 #searchArea{
     text-align: center;
+    padding: 3%;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+}
+
+#noResult{
+    visibility: hidden;
+    display: none;
 }

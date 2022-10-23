@@ -141,6 +141,8 @@ function sortAlpha(){
 }
 
 function searchNumber(){
+    var searchCount = 0;
+
     var searchValue = document.getElementById("search-bar");
     var conTable = document.getElementById("contactsTable");
     var ctRows = conTable.getElementsByTagName("tr");
@@ -151,9 +153,20 @@ function searchNumber(){
         numValue = tData.textContent || tData.innerText;
         if (numValue.indexOf(searchValue.value) > -1) {
             ctRows[i].style.display = "";
+            searchCount ++;
         } else {
             ctRows[i].style.display = "none";
         }
       }
+    }
+
+    let noRes = document.getElementById('noResult');
+
+    if(searchCount == 0){
+        noRes.style.display = 'block';
+        noRes.style.visibility = 'visible';
+    } else{
+        noRes.style.display = 'none';
+        noRes.style.visibility = 'hidden';
     }
 }
