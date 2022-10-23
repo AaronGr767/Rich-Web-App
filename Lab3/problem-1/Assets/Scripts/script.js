@@ -141,5 +141,19 @@ function sortAlpha(){
 }
 
 function searchNumber(){
-    
+    var searchValue = document.getElementById("search-bar");
+    var conTable = document.getElementById("contactsTable");
+    var ctRows = conTable.getElementsByTagName("tr");
+  
+    for (i = 0; i < ctRows.length; i++) {
+        tData = ctRows[i].getElementsByTagName("td")[1];
+      if (tData) {
+        numValue = tData.textContent || tData.innerText;
+        if (numValue.indexOf(searchValue.value) > -1) {
+            ctRows[i].style.display = "";
+        } else {
+            ctRows[i].style.display = "none";
+        }
+      }
+    }
 }
