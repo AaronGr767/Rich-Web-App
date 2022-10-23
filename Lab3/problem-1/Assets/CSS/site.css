@@ -24,11 +24,14 @@
 #contactPlaceholder{
     margin: 0 auto;
     text-align: center;
+    
 }
 
 #contactsTable{
     margin: 0 auto;
-    border: 1px solid black;
+    border-collapse: collapse;
+    width: 75%;
+    table-layout: fixed;
 }
 
 th{
@@ -37,7 +40,9 @@ th{
 }
 
 th, td{
-    border: 1px solid black;
+    border: 2px solid gray;
+    text-align: left;
+    padding: 1%;
 }
 
 #searchArea{
