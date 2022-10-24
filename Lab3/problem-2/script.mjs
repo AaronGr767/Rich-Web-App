@@ -15,7 +15,7 @@ fetch('https://jsonplaceholder.typicode.com/posts/')
   }
 
   function bodyMap(body){
-    const arr = body.split(' ');
+    const arr = body.split(/\s/);
     var bodyArray= [];
     counter++;
 
