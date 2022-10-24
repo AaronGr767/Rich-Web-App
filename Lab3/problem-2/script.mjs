@@ -3,9 +3,10 @@ let counter = 0;
 
 fetch('https://jsonplaceholder.typicode.com/posts/')
   .then(response => response.json())
-  //.then(posts => console.log(posts.filter(posts => countPostTitle(posts.title))))
-  .then(posts => console.log(posts.map(posts => bodyMap(posts.body))))
-
+  .then(posts => {
+    console.log(posts.filter(posts => countPostTitle(posts.title)))
+    console.log(posts.map(posts => bodyMap(posts.body)))
+  })
 
   function countPostTitle(title){
     const arr = title.split(' ');
