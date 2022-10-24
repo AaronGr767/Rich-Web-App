@@ -4,7 +4,7 @@ let counter = 0;
 fetch('https://jsonplaceholder.typicode.com/posts/')
   .then(response => response.json())
   .then(posts => {
-    console.log(posts.filter(posts => countPostTitle(posts.title)))
+    console.log(posts.filter(posts => countPostTitle(posts.title)).map(posts => posts.title))
     console.log(posts.map(posts => bodyMap(posts.body)))
   })
 
