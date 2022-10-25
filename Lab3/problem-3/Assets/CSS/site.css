@@ -6,4 +6,49 @@ body{
     background-color: white;
     border: 1px solid black;
     width: 40%;
+    padding-top: 20px;
+
+}
+
+#pictureBorder {
+    width: 95%;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+
+#pictureContainer {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#profileListContainer{ 
+    padding-top: 15px;
+}
+
+#profileName{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#profileUsername{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#profileEmail{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#profileLocation{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#profileGists{
+    border: 1px solid black;
+    padding: 10px;
 }
