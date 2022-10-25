@@ -8,13 +8,14 @@ search_btn.addEventListener('click', () => {
         alert('You must enter a username first!');
     }
 
-    let userRequest = fetch(`https://api.github.com/users/${searchName.value}`);
-
-    showUserSearch(userRequest);
+    showUserInfoSearch(searchName);
+    showUserRepoSearch(searchName)
 
 });
 
-function showUserSearch(userRequest){
+function showUserInfoSearch(searchName){
+
+    let userRequest = fetch(`https://api.github.com/users/${searchName.value}`);
 
     let prPicture = document.getElementById('profilePicture');
     let prName = document.getElementById('profileName');
@@ -38,7 +39,7 @@ function showUserSearch(userRequest){
             userInfo.email = noInfo;
         }
 
-        if(userInfo.location == null){
+        if(userInfo.lcoation == null){
             userInfo.location = noInfo;
         }
 
@@ -50,4 +51,27 @@ function showUserSearch(userRequest){
         prGists.innerHTML = userInfo.public_gists
     })
 
+}
+
+function showUserRepoSearch(searchName){
+    let repoRequest = fetch(`https://api.github.com/users/${searchName.value}/repos`);
+
+    repoRequest.then(response => response.json())
+    .then(repoInfo => {
+
+        console.log(repoInfo);
+
+        let html = "";
+
+        for(let i=0; i<repoInfo.length; i++){
+            html += `<div class="repoList">
+            <h5>${repoInfo[i].name}</h5>
+            <p>${repoInfo[i].description}</p>
+        </div>`;
+        let repoHTML = document.getElementById("reposListContainer");
+        repoHTML.innerHTML = html;
+        }
+    })
+
+     
 }
