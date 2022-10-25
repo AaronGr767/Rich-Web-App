@@ -28,6 +28,20 @@ function showUserSearch(userRequest){
 
         console.log(userInfo);
 
+        let noInfo = 'No info found.'
+
+        if(userInfo.name == null){
+            userInfo.name = noInfo;
+        }
+
+        if(userInfo.email == null){
+            userInfo.email = noInfo;
+        }
+
+        if(userInfo.location == null){
+            userInfo.location = noInfo;
+        }
+
         prPicture.src = userInfo.avatar_url;
         prName.innerHTML = userInfo.name;
         prUsername.innerHTML = userInfo.login;
