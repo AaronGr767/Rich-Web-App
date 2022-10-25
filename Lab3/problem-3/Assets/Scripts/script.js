@@ -1,16 +1,33 @@
 let search_btn = document.getElementById('search-button');
+let displayHTML = document.getElementById('showContent');
+    displayHTML.style.display = 'none';
+    displayHTML.style.visibility = 'hidden';
 
+    document.getElementById('searchInput').value = "";
 
-//When user attempts to add contact, enter this function
 search_btn.addEventListener('click', () => {
     let searchName = document.getElementById('searchInput');
 
-    if (searchName.value.length == 0) {
-        alert('You must enter a username first!');
-    }
+    let userRequest = fetch(`https://api.github.com/users/${searchName.value}`);
 
-    showUserInfoSearch(searchName);
-    showUserRepoSearch(searchName)
+    userRequest.then(response => {console.log(response.json())
+        
+        if(response.ok){
+            showUserInfoSearch(searchName);
+            showUserRepoSearch(searchName);
+
+            let displayHTML = document.getElementById('showContent');
+            displayHTML.style.display = 'block';
+            displayHTML.style.visibility = 'visible';
+
+        } else {
+            let displayHTML = document.getElementById('showContent');
+            displayHTML.style.display = 'none';
+            displayHTML.style.visibility = 'hidden';
+            alert("You must enter a valid username!");
+        }
+    })
+    
 
 });
 
