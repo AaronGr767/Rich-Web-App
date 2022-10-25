@@ -1,7 +1,29 @@
+body{
+    background-color: #d3dbdb;
+}
+
+#searchBar {
+    margin: auto;
+    width: 20%;
+    background-color: lightblue;
+    border: 2px solid lightsteelblue;
+    padding: 2%;
+    border-radius: 7px;
+    display: flex;
+}
+
+.sbDisplay {
+    flex: 1;
+    margin-right: 5px;
+    border: 2px solid lightgray;
+    border-radius: 6px;
+    padding: 10px;
+}
 
 #userProfile{
     border: 1px solid black;
     padding-top: 20px;
+    background-color: #f2f7f7;
 }
 
 #pictureBorder {
@@ -43,5 +65,6 @@
 .repoInfo{
     padding: 10px;
     border: 1px solid black;
+    background-color: #f2f7f7;
 }
 

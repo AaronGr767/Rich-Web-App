@@ -5,7 +5,7 @@ let search_btn = document.getElementById('search-button');
 search_btn.addEventListener('click', () => {
     let searchName = document.getElementById('searchInput');
 
-    if(searchName.value.length == 0){
+    if (searchName.value.length == 0) {
         alert('You must enter a username first!');
     }
 
@@ -14,7 +14,7 @@ search_btn.addEventListener('click', () => {
 
 });
 
-function showUserInfoSearch(searchName){
+function showUserInfoSearch(searchName) {
 
     let userRequest = fetch(`https://api.github.com/users/${searchName.value}`);
 
@@ -26,64 +26,64 @@ function showUserInfoSearch(searchName){
     let prGists = document.getElementById('profileGists');
 
     userRequest.then(response => response.json())
-    .then(userInfo => {
+        .then(userInfo => {
 
-        console.log(userInfo);
+            console.log(userInfo);
 
-        let noInfo = 'No info found.'
+            let noInfo = 'No info found.'
 
-        if(userInfo.name == null){
-            userInfo.name = noInfo;
-        }
+            if (userInfo.name == null) {
+                userInfo.name = noInfo;
+            }
 
-        if(userInfo.email == null){
-            userInfo.email = noInfo;
-        }
+            if (userInfo.email == null) {
+                userInfo.email = noInfo;
+            }
 
-        if(userInfo.lcoation == null){
-            userInfo.location = noInfo;
-        }
+            if (userInfo.lcoation == null) {
+                userInfo.location = noInfo;
+            }
 
-        prPicture.src = userInfo.avatar_url;
-        prName.innerHTML = userInfo.name;
-        prUsername.innerHTML = userInfo.login;
-        prEmail.innerHTML = userInfo.email;
-        prLocation.innerHTML = userInfo.location;
-        prGists.innerHTML = userInfo.public_gists
-    })
+            prPicture.src = userInfo.avatar_url;
+            prName.innerHTML = userInfo.name;
+            prUsername.innerHTML = userInfo.login;
+            prEmail.innerHTML = userInfo.email;
+            prLocation.innerHTML = userInfo.location;
+            prGists.innerHTML = userInfo.public_gists
+        })
 
 }
 
-function showUserRepoSearch(searchName){
+function showUserRepoSearch(searchName) {
     let repoRequest = fetch(`https://api.github.com/users/${searchName.value}/repos`);
 
     repoRequest.then(response => response.json())
-    .then(repoInfo => {
+        .then(repoInfo => {
 
-        console.log(repoInfo);
+            console.log(repoInfo);
 
-        
-        let html = "";
-        
-        for(let i=0; i<repoInfo.length; i++){
-            html += `<div class="repoInfo">
+
+            let html = "";
+
+            for (let i = 0; i < repoInfo.length; i++) {
+                html += `<div class="repoInfo">
             <h5>${repoInfo[i].name}</h5>
             <p>${repoInfo[i].description}</p>
             </div>`;
-            let repoHTML = document.getElementById("reposListContainer");
-            repoHTML.innerHTML = html;
-        }
+                let repoHTML = document.getElementById("reposListContainer");
+                repoHTML.innerHTML = html;
+            }
 
-        if(repoInfo.length > 5){
-            let rlCont = document.getElementById('reposListContainer'); 
-            rlCont.style.overflow = "auto";
-            rlCont.style.borderBottom = "1px solid black"
+            if (repoInfo.length > 5) {
+                let rlCont = document.getElementById('reposListContainer');
+                rlCont.style.overflow = "auto";
+                rlCont.style.borderBottom = "1px solid black"
 
-        } else{
-            let rlCont = document.getElementById('reposListContainer'); 
-    rlCont.style.border = "0px"
-        }
-    })
+            } else {
+                let rlCont = document.getElementById('reposListContainer');
+                rlCont.style.border = "0px"
+            }
+        })
 
-     
+
 }
