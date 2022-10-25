@@ -7,15 +7,21 @@ search_btn.addEventListener('click', () => {
     if(searchName.value.length == 0){
         alert('You must enter a username first!');
     }
-     
+
+    let userRequest = fetch(`https://api.github.com/users/${searchName.value}`);
+
+    showUserSearch(userRequest);
+
+});
+
+function showUserSearch(userRequest){
+
     let prPicture = document.getElementById('profilePicture');
     let prName = document.getElementById('profileName');
     let prUsername = document.getElementById('profileUsername');
     let prEmail = document.getElementById('profileEmail');
     let prLocation = document.getElementById('profileLocation');
     let prGists = document.getElementById('profileGists');
-
-    let userRequest = fetch(`https://api.github.com/users/${searchName.value}`);
 
     userRequest.then(response => response.json())
     .then(userInfo => {
@@ -29,11 +35,5 @@ search_btn.addEventListener('click', () => {
         prLocation.innerHTML = userInfo.location;
         prGists.innerHTML = userInfo.public_gists
     })
-
-
-});
-
-function showUserSearch(){
-    let
 
 }
