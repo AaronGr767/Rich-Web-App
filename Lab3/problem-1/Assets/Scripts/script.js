@@ -112,7 +112,7 @@ function showContacts() {
 
     let html = "";
 
-    contactsIndex.forEach(function (element, index) { //Cycles through each entry and displays it in table
+    contactsIndex.forEach(function (element) { //Cycles through each entry and displays it in table
         html += `<tr>
                     <td>${element.formName}</td>
                     <td>${element.formNumber}</td>
@@ -126,7 +126,7 @@ function showContacts() {
 
 //Sorts table by name alphabetically (ascending & descending)
 function sortAlpha() {
-    var contacts, rows, switching, i, comp1, comp2, switched;
+    let contacts, rows, switching, i, comp1, comp2, switched;
     contacts = document.getElementById("contactsTable");
     switching = true;
     while (switching) { //Loops until no more switching to be done
@@ -138,12 +138,12 @@ function sortAlpha() {
             comp1 = rows[i].getElementsByTagName("TD")[0];
             comp2 = rows[i + 1].getElementsByTagName("TD")[0];
 
-            if (alreadyClicked == false) { //Checks to order in descending order
+            if (!alreadyClicked) { //Checks to order in descending order
                 if (comp1.innerHTML.toLowerCase() > comp2.innerHTML.toLowerCase()) {
                     switched = true;
                     break;
                 }
-            } else if (alreadyClicked == true) { //Checks to order in ascending order
+            } else if (alreadyClicked) { //Checks to order in ascending order
                 if (comp1.innerHTML.toLowerCase() < comp2.innerHTML.toLowerCase()) {
                     switched = true;
                     break;
@@ -161,11 +161,11 @@ function sortAlpha() {
 
 //Searches table based on mobile number input
 function searchNumber() {
-    var searchCount = 0;
+    let searchCount = 0;
 
-    var searchValue = document.getElementById("search-bar");
-    var conTable = document.getElementById("contactsTable");
-    var ctRows = conTable.getElementsByTagName("tr");
+    let searchValue = document.getElementById("search-bar");
+    let conTable = document.getElementById("contactsTable");
+    let ctRows = conTable.getElementsByTagName("tr");
 
     for (i = 0; i < ctRows.length; i++) { //Iterates through each row
         tData = ctRows[i].getElementsByTagName("td")[1];
