@@ -61,15 +61,21 @@ function showUserRepoSearch(searchName){
 
         console.log(repoInfo);
 
+        
         let html = "";
-
+        
         for(let i=0; i<repoInfo.length; i++){
             html += `<div class="repoList">
             <h5>${repoInfo[i].name}</h5>
             <p>${repoInfo[i].description}</p>
-        </div>`;
-        let repoHTML = document.getElementById("reposListContainer");
-        repoHTML.innerHTML = html;
+            </div>`;
+            let repoHTML = document.getElementById("reposListContainer");
+            repoHTML.innerHTML = html;
+        }
+
+        if(repoInfo.length > 5){
+            let newDiv = document.getElementById('reposListContainer'); 
+            newDiv.style.overflow = "auto";
         }
     })
 

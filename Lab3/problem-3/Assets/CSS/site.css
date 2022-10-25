@@ -58,6 +58,12 @@ body{
     float: left;
 }
 
+#reposListContainer {
+    width: 45%;
+    position: absolute;
+    height: 650px;
+}
+
 .repoList{
     background-color: white;
     border: 1px solid black;
