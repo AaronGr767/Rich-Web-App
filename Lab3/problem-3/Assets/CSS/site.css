@@ -1,12 +1,7 @@
-body{
-    background-color: antiquewhite;
-}
 
 #userProfile{
-    background-color: white;
     border: 1px solid black;
     padding-top: 20px;
-
 }
 
 #pictureBorder {
@@ -27,29 +22,9 @@ body{
     padding-top: 15px;
 }
 
-#profileName{
-    border: 1px solid black;
+.ghInfo{
     padding: 10px;
-}
-
-#profileUsername{
-    border: 1px solid black;
-    padding: 10px;
-}
-
-#profileEmail{
-    border: 1px solid black;
-    padding: 10px;
-}
-
-#profileLocation{
-    border: 1px solid black;
-    padding: 10px;
-}
-
-#profileGists{
-    border: 1px solid black;
-    padding: 10px;
+    border-top: 1px solid gray;
 }
 
 .profileHolder{
@@ -62,10 +37,11 @@ body{
     width: 45%;
     position: absolute;
     height: 650px;
+    border-color: 0px;
 }
 
-.repoList{
-    background-color: white;
-    border: 1px solid black;
+.repoInfo{
     padding: 10px;
+    border: 1px solid black;
 }
+

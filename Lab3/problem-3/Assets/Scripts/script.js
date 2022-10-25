@@ -1,5 +1,6 @@
 let search_btn = document.getElementById('search-button');
 
+
 //When user attempts to add contact, enter this function
 search_btn.addEventListener('click', () => {
     let searchName = document.getElementById('searchInput');
@@ -65,7 +66,7 @@ function showUserRepoSearch(searchName){
         let html = "";
         
         for(let i=0; i<repoInfo.length; i++){
-            html += `<div class="repoList">
+            html += `<div class="repoInfo">
             <h5>${repoInfo[i].name}</h5>
             <p>${repoInfo[i].description}</p>
             </div>`;
@@ -74,8 +75,13 @@ function showUserRepoSearch(searchName){
         }
 
         if(repoInfo.length > 5){
-            let newDiv = document.getElementById('reposListContainer'); 
-            newDiv.style.overflow = "auto";
+            let rlCont = document.getElementById('reposListContainer'); 
+            rlCont.style.overflow = "auto";
+            rlCont.style.borderBottom = "1px solid black"
+
+        } else{
+            let rlCont = document.getElementById('reposListContainer'); 
+    rlCont.style.border = "0px"
         }
     })
 
