@@ -5,14 +5,14 @@ let displayHTML = document.getElementById('showContent');
 
     document.getElementById('searchInput').value = "";
 
-search_btn.addEventListener('click', () => {
+search_btn.addEventListener('click', () => { //Listens for when user clicks search button
     let searchName = document.getElementById('searchInput');
 
-    let userRequest = fetch(`https://api.github.com/users/${searchName.value}`);
+    let userRequest = fetch(`https://api.github.com/users/${searchName.value}`); //Parses user search into url
 
-    userRequest.then(response => {console.log(response.json())
+    userRequest.then(response => {console.log(response.json()) //response from fetch request
         
-        if(response.ok){
+        if(response.ok){ //If the response code indicates success then display github profule
             showUserInfoSearch(searchName);
             showUserRepoSearch(searchName);
 
@@ -20,7 +20,7 @@ search_btn.addEventListener('click', () => {
             displayHTML.style.display = 'block';
             displayHTML.style.visibility = 'visible';
 
-        } else {
+        } else { //else keep displays hidden and alert user of unsuccessful search
             let displayHTML = document.getElementById('showContent');
             displayHTML.style.display = 'none';
             displayHTML.style.visibility = 'hidden';
@@ -31,7 +31,7 @@ search_btn.addEventListener('click', () => {
 
 });
 
-function showUserInfoSearch(searchName) {
+function showUserInfoSearch(searchName) { //Shows user profile info upon successful search
 
     let userRequest = fetch(`https://api.github.com/users/${searchName.value}`);
 
@@ -49,6 +49,7 @@ function showUserInfoSearch(searchName) {
 
             let noInfo = 'No info found.'
 
+            //Checks if optional info is null or not
             if (userInfo.name == null) {
                 userInfo.name = noInfo;
             }
@@ -57,10 +58,11 @@ function showUserInfoSearch(searchName) {
                 userInfo.email = noInfo;
             }
 
-            if (userInfo.lcoation == null) {
+            if (userInfo.location == null) {
                 userInfo.location = noInfo;
             }
 
+            //Populates html with user info from fetch
             prPicture.src = userInfo.avatar_url;
             prName.innerHTML = userInfo.name;
             prUsername.innerHTML = userInfo.login;
@@ -71,7 +73,7 @@ function showUserInfoSearch(searchName) {
 
 }
 
-function showUserRepoSearch(searchName) {
+function showUserRepoSearch(searchName) { //Shows user repo info upon successful search
     let repoRequest = fetch(`https://api.github.com/users/${searchName.value}/repos`);
 
     repoRequest.then(response => response.json())
@@ -82,16 +84,16 @@ function showUserRepoSearch(searchName) {
 
             let html = "";
 
-            for (let i = 0; i < repoInfo.length; i++) {
+            for (let i = 0; i < repoInfo.length; i++) { //Iterates for each repo and populates html with repo details
                 html += `<div class="repoInfo">
-            <h5>${repoInfo[i].name}</h5>
-            <p>${repoInfo[i].description}</p>
-            </div>`;
+                        <h5>${repoInfo[i].name}</h5>
+                        <p>${repoInfo[i].description}</p>
+                        </div>`;
                 let repoHTML = document.getElementById("reposListContainer");
                 repoHTML.innerHTML = html;
             }
 
-            if (repoInfo.length > 5) {
+            if (repoInfo.length > 5) { //Makes user repo area scrollable if profile has more than 5 repos
                 let rlCont = document.getElementById('reposListContainer');
                 rlCont.style.overflow = "auto";
                 rlCont.style.borderBottom = "1px solid black"
