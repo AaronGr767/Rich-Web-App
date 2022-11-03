@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-let counter = 0;
 
 fetch('https://jsonplaceholder.typicode.com/posts/')
   .then(response => response.json())
@@ -8,18 +7,20 @@ fetch('https://jsonplaceholder.typicode.com/posts/')
     console.log(posts.map(posts => bodyMap(posts.body)))
   })
 
-  function countPostTitle(title){
+  function countPostTitle(title){ //Displays all titles with more than 6 words
     const arr = title.split(' ');
 
     return arr.filter(word => word !== '').length > 6;
   }
 
-  function bodyMap(body){
-    const arr = body.split(/\s/);
-    var bodyArray= [];
-    counter++;
+  function bodyMap(body){ //Create frequency map for each word in the body
+    let arr = body.split(/\s+/);
+    const counts = new Map();
+    
+    arr.forEach(
+      word => counts.set(word, (counts.get(word) ?? 0) + 1)
+      );
 
-    bodyArray[counter] = arr.filter(word => word !== '').length 
+    return counts;
+    }
 
-    return bodyArray;
-  }
