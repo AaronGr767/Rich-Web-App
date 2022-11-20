@@ -17,7 +17,7 @@ document.querySelector("form").reset();
 
 showNotes();
 
-const subscription1 = observeCreate.subscribe(event => {
+const subscriptionAdd = observeCreate.subscribe(event => {
     let formVisibilty = document.getElementById('NoteCreationPopUp');
 
     if (formVisibilty.style.display == 'none') {
@@ -28,7 +28,7 @@ const subscription1 = observeCreate.subscribe(event => {
 });
 
 
-add_btn.addEventListener('click', () => {
+const subscriptionCreate = observeCreate.subscribe(event => {
     let name = document.getElementById('name');
     let content = document.getElementById('content');
     let colours = document.getElementById('colours');
