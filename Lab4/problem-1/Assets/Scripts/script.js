@@ -25,10 +25,12 @@ const subscriptionAdd = observeCreate.subscribe(event => {
     } else {
         formVisibilty.style.display = 'none';
     }
+
+    subscriptionAdd.unsubscribe();
 });
 
 
-const subscriptionCreate = observeCreate.subscribe(event => {
+const subscriptionCreate = observeAdd.subscribe(event => {
     let name = document.getElementById('name');
     let content = document.getElementById('content');
     let colours = document.getElementById('colours');
@@ -58,6 +60,7 @@ const subscriptionCreate = observeCreate.subscribe(event => {
     let formVisibilty = document.getElementById('NoteCreationPopUp');
     formVisibilty.style.display = 'none';
 
+    subscriptionCreate.unsubscribe();
     showNotes();
 });
 
