@@ -1,4 +1,4 @@
-const { fromEvent } = rxjs;
+import { fromEvent } from 'rxjs';
 
 const create_btn = document.getElementById('create-note-button');
 const add_btn = document.getElementById('add-note-button');
@@ -6,12 +6,8 @@ const add_btn = document.getElementById('add-note-button');
 const observeCreate = fromEvent(create_btn, 'click');
 const observeAdd = fromEvent(add_btn, 'click');
 
-const createSubscription = observeCreate.subscribe({
-    next: createFunction()
-});
-
-const addSubscription = observeAdd.subscribe({
-    next: addFunction()
+const subscription = observeCreate.subscribe({
+    next: createFunction
 });
 
 let formVisibilty = document.getElementById('NoteCreationPopUp');
@@ -21,7 +17,7 @@ document.querySelector("form").reset();
 
 showNotes();
 
-function createFunction(){
+create_btn.addEventListener('click', () => {
     let formVisibilty = document.getElementById('NoteCreationPopUp');
 
     if (formVisibilty.style.display == 'none') {
@@ -29,10 +25,10 @@ function createFunction(){
     } else {
         formVisibilty.style.display = 'none';
     }
-};
+});
 
 
-function addFunction(){
+add_btn.addEventListener('click', () => {
     let name = document.getElementById('name');
     let content = document.getElementById('content');
     let colours = document.getElementById('colours');
@@ -63,7 +59,7 @@ function addFunction(){
     formVisibilty.style.display = 'none';
 
     showNotes();
-};
+});
 
 function showNotes() {
     let notes = localStorage.getItem("notesStore");
