@@ -1,4 +1,4 @@
-import { fromEvent } from 'rxjs';
+const { fromEvent } = rxjs;
 
 const create_btn = document.getElementById('create-note-button');
 const add_btn = document.getElementById('add-note-button');
