@@ -1,3 +1,5 @@
+import { fromEvent } from 'rxjs';
+
 let formVisibilty = document.getElementById('NoteCreationPopUp');
 formVisibilty.style.display = 'none';
 
