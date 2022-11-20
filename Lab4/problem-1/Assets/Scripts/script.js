@@ -1,5 +1,19 @@
 import { fromEvent } from 'rxjs';
 
+const create_btn = document.getElementById('create-note-button');
+const add_btn = document.getElementById('add-note-button');
+
+const observeCreate = fromEvent(create_btn, 'click');
+const observeAdd = fromEvent(add_btn, 'click');
+
+const createSubscription = observeCreate.subscribe({
+    next: createFunction()
+});
+
+const addSubscription = observeAdd.subscribe({
+    next: addFunction()
+});
+
 let formVisibilty = document.getElementById('NoteCreationPopUp');
 formVisibilty.style.display = 'none';
 
@@ -7,10 +21,7 @@ document.querySelector("form").reset();
 
 showNotes();
 
-let create_btn = document.getElementById('create-note-button');
-let add_btn = document.getElementById('add-note-button');
-
-create_btn.addEventListener('click', () => {
+function createFunction(){
     let formVisibilty = document.getElementById('NoteCreationPopUp');
 
     if (formVisibilty.style.display == 'none') {
@@ -18,10 +29,10 @@ create_btn.addEventListener('click', () => {
     } else {
         formVisibilty.style.display = 'none';
     }
-});
+};
 
 
-add_btn.addEventListener('click', () => {
+function addFunction(){
     let name = document.getElementById('name');
     let content = document.getElementById('content');
     let colours = document.getElementById('colours');
@@ -52,7 +63,7 @@ add_btn.addEventListener('click', () => {
     formVisibilty.style.display = 'none';
 
     showNotes();
-});
+};
 
 function showNotes() {
     let notes = localStorage.getItem("notesStore");
