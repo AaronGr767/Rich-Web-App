@@ -22,9 +22,13 @@ stateExample(){
 
 --Problem 2 : In functional programming, what does the term functor mean? Can you give an example in JavaScript?
 
-
+A functor
 
 --Problem 3 : We have looked at three kinds of asynchronous programming mechanisms,namely callbacks, promises and streams. Mention one advantage and one disadvantage of each type.
+
+Callbacks:
+Promises:
+Streams:
 
 --Problem 4 : With the aid of a diagram and example code, describe the Cascading Style Sheets (CSS) Box Model and show how it can be used to space DOM elements.
 
