@@ -72,6 +72,7 @@ function showNotes() {
                         <p class="ContentText">${element.noteContent}</p>
                     </div>
                     <button id="${index}"onclick="editNote(this.id)" class="edit-note-button">Edit Note</button>
+                    <button id="${index}"onclick="createChildNote(this.id)" class="child-note-button">Create Child Note</button>
 		            <button id="${index}"onclick="deleteNote(this.id)" class="delete-note-button">Delete Note</button>
 	            </div>`;
     });

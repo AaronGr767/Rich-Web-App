@@ -27,14 +27,19 @@
 
 .edit-note-button {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
 }
 
 .delete-note-button {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
+}
+
+.child-note-button {
+    position: absolute;
+    bottom: 0;
 }
 
 #NoteCreationContent {
