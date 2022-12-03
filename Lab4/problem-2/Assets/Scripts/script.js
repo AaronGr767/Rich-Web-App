@@ -13,7 +13,14 @@ fromEvent(start_btn, 'click').subscribe(() => {
     let inputMin = (parseInt(document.getElementById('minuteText').value));
     let inputHour = (parseInt(document.getElementById('hourText').value));
 
-
+    if(!inputSec){
+        inputSec = 0;
+    }else if(!inputMin){
+        inputMin = 0;
+    }else if(!inputHour){
+        inputHour = 0;
+    }
+    
     if(!inputSec && !inputMin && !inputHour ){
         alert("Timer will not start until user enters valid numbers!");
     }
@@ -25,7 +32,6 @@ fromEvent(start_btn, 'click').subscribe(() => {
         let total_time = timerSec + timerMin + timerHour;
         countdown(total_time);
     }
-    // console.log(timerSec + " + " + timerMin + " + " + timerHour);
 
 });
 
