@@ -3,12 +3,6 @@ const { fromEvent } = rxjs;
 const create_btn = document.getElementById('create-note-button');
 const add_btn = document.getElementById('add-note-button');
 
-// const observeCreate = fromEvent(create_btn, 'click');
-// const observeAdd = fromEvent(add_btn, 'click');
-
-// const subscription = observeCreate.subscribe({
-//     next: createFunction
-// });
 
 let formVisibilty = document.getElementById('NoteCreationPopUp');
 formVisibilty.style.display = 'none';
