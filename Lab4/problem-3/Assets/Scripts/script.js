@@ -3,6 +3,9 @@ const { fromEvent } = rxjs;
 let formVisibilty = document.getElementById('NoteCreationPopUp');
 formVisibilty.style.display = 'none';
 
+let parentId = null;
+let childNote= false;
+
 document.querySelector("form").reset();
 
 showNotes();
@@ -37,11 +40,11 @@ fromEvent(add_btn, 'click').subscribe(() => {
     }
     
 
-    let createdNote = {
-        noteName: name.value,
-        noteContent: content.value,
-        noteColours: colours.value
-    }
+        let createdNote = {
+            parent: parentId,
+            noteName: name.value,
+            noteContent: content.value,
+            noteColours: colours.value}
     
     noteIndex.push(createdNote);
     localStorage.setItem('notesStore', JSON.stringify(noteIndex));
@@ -51,8 +54,11 @@ fromEvent(add_btn, 'click').subscribe(() => {
     let formVisibilty = document.getElementById('NoteCreationPopUp');
     formVisibilty.style.display = 'none';
 
+    parentId=null;
+
     showNotes();
 });
+
 
 function showNotes() {
     let notes = localStorage.getItem("notesStore");
@@ -72,13 +78,27 @@ function showNotes() {
                         <p class="ContentText">${element.noteContent}</p>
                     </div>
                     <button id="${index}"onclick="editNote(this.id)" class="edit-note-button">Edit Note</button>
-                    <button id="${index}"onclick="createChildNote(this.id)" class="child-note-button">Create Child Note</button>
+                    <button id="${index}"onclick="createChildNoteCheck(this.id)" class="child-note-button">Create Child Note</button>
 		            <button id="${index}"onclick="deleteNote(this.id)" class="delete-note-button">Delete Note</button>
 	            </div>`;
     });
     
     let noteHTML = document.getElementById("DisplayedNotesArea");
     noteHTML.innerHTML = html;
+}
+
+
+function createChildNoteCheck(parent){
+    let formVisibilty = document.getElementById('NoteCreationPopUp');
+
+    parentId = parent;
+
+    if (formVisibilty.style.display == 'none') {
+        formVisibilty.style.display = 'block';
+    } else {
+        formVisibilty.style.display = 'none';
+    }
+    childNote = true;
 }
 
 function editNote(index) {
@@ -116,3 +136,37 @@ function deleteNote(index) {
     showNotes();
 }
   
+
+function createChildNote(parent) {
+    let name = document.getElementById('name');
+    let content = document.getElementById('content');
+    let colours = document.getElementById('colours');
+
+    if (name.value == "" || content.value == "") {
+        return alert("Please fill in all required info!");
+      } 
+
+    if (localStorage.getItem("notesStore") == null) {
+        noteIndex = [];
+    }else{
+        noteIndex = JSON.parse(localStorage.getItem('notesStore'));
+    }
+    
+
+    let createdNote = {
+        parent: parent,
+        noteName: name.value,
+        noteContent: content.value,
+        noteColours: colours.value
+    }
+    
+    noteIndex.push(createdNote);
+    localStorage.setItem('notesStore', JSON.stringify(noteIndex));
+    
+    document.querySelector("form").reset();
+
+    let formVisibilty = document.getElementById('NoteCreationPopUp');
+    formVisibilty.style.display = 'none';
+
+    showNotes();
+};
