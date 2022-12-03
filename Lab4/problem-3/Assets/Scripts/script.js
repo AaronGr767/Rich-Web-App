@@ -1,3 +1,5 @@
+const { fromEvent } = rxjs;
+
 let formVisibilty = document.getElementById('NoteCreationPopUp');
 formVisibilty.style.display = 'none';
 
@@ -8,7 +10,7 @@ showNotes();
 let create_btn = document.getElementById('create-note-button');
 let add_btn = document.getElementById('add-note-button');
 
-create_btn.addEventListener('click', () => {
+fromEvent(create_btn, 'click').subscribe(() => {
     let formVisibilty = document.getElementById('NoteCreationPopUp');
 
     if (formVisibilty.style.display == 'none') {
@@ -19,7 +21,7 @@ create_btn.addEventListener('click', () => {
 });
 
 
-add_btn.addEventListener('click', () => {
+fromEvent(add_btn, 'click').subscribe(() => {
     let name = document.getElementById('name');
     let content = document.getElementById('content');
     let colours = document.getElementById('colours');
