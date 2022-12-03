@@ -47,6 +47,7 @@ fromEvent(add_btn, 'click').subscribe(() => {
             noteColours: colours.value}
     
     noteIndex.push(createdNote);
+    
     localStorage.setItem('notesStore', JSON.stringify(noteIndex));
     
     document.querySelector("form").reset();
@@ -136,37 +137,3 @@ function deleteNote(index) {
     showNotes();
 }
   
-
-function createChildNote(parent) {
-    let name = document.getElementById('name');
-    let content = document.getElementById('content');
-    let colours = document.getElementById('colours');
-
-    if (name.value == "" || content.value == "") {
-        return alert("Please fill in all required info!");
-      } 
-
-    if (localStorage.getItem("notesStore") == null) {
-        noteIndex = [];
-    }else{
-        noteIndex = JSON.parse(localStorage.getItem('notesStore'));
-    }
-    
-
-    let createdNote = {
-        parent: parent,
-        noteName: name.value,
-        noteContent: content.value,
-        noteColours: colours.value
-    }
-    
-    noteIndex.push(createdNote);
-    localStorage.setItem('notesStore', JSON.stringify(noteIndex));
-    
-    document.querySelector("form").reset();
-
-    let formVisibilty = document.getElementById('NoteCreationPopUp');
-    formVisibilty.style.display = 'none';
-
-    showNotes();
-};
