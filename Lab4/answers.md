@@ -1,0 +1,7 @@
+-- Problem 1. Explain what is meant by the stream abstraction. What is the relationship between streams and the observer pattern? What are streams useful for modeling and when might you use them in Rich Web development?
+
+-- Problem 2. Assume that you are building an interface to an API in your Rich Web App. Describe indetail how you could use the RxJS library to handle asynchronous network responses to API requests. In your opinion, what are the benefits to using a streams library for networking over, say, promises? And what do you think are the downsides?
+
+-- Problem 3. Consider three asynchronous tasks, A,B & C. What are the consequences of these functions sharing global state? What is a good practice to alleviate any problems associated with this?
+
+Having several asynchronous tasks share global state is a poor idea in web development. It can cause a lack of visibilty for what each task is accomplishing and can cause the tasks to get in each other's way. A common consequence of this is 'Tight Coupling' which refers to when components of a system are highly dependent on each other in order to function. The flexibility and re-usability of code in each task is affected as a result. 'Loose Coupling' is a common method to alleviate such a problem. It is the opposite of 'Tight Coupling' and means there is a level of detachment between each task. This can be accomplished in this example by not sharing a global state and instead passing any data between the tasks as paramaters in each call.
