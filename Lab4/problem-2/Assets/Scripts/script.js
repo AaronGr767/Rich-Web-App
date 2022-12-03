@@ -5,10 +5,23 @@ const numberOfSeconds = 10;
 
 const start_btn = document.getElementById('startButton');
 
-const observeStart = fromEvent(start_btn, 'click');
-let html = "";
+fromEvent(start_btn, 'click').subscribe(() => {
+    let inputSec = (parseInt(document.getElementById('secondText').value));
+    let inputMin = (parseInt(document.getElementById('minuteText').value));
+    let inputHour = (parseInt(document.getElementById('hourText').value));
 
-let repoHTML = document.getElementById("countdownBox");
+    let timerSec = inputSec * 1000;
+    let timerMin = inputMin * 1000 * 60;
+    let timerHour = inputHour * 1000 * 60 * 60;
+
+    console.log(timerSec + " + " + timerMin + " + " + timerHour);
+});
+
+// let html = "";
+
+// let repoHTML = document.getElementById("countdownBox");
+
+
 
 // const time = 5 // 5 seconds
 // var timer$ = rxjs.Observable.interval(1000) // 1000 = 1 second     
