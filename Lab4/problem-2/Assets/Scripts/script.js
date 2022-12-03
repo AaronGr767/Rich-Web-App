@@ -3,7 +3,13 @@ const { fromEvent, pipe, observable, map, timer, take, interval} = rxjs;
 //const counter$ = interval(1000); // rxjs creation operator - will fire every second
 const numberOfSeconds = 10;
 
+document.getElementById('secondText').value = "";
+document.getElementById('minuteText').value = "";
+document.getElementById('hourText').value= "";
+
 const start_btn = document.getElementById('startButton');
+let countHTML = document.getElementById('countDownBox')
+
 
 fromEvent(start_btn, 'click').subscribe(() => {
     let inputSec = (parseInt(document.getElementById('secondText').value));
@@ -14,7 +20,14 @@ fromEvent(start_btn, 'click').subscribe(() => {
     let timerMin = inputMin * 1000 * 60;
     let timerHour = inputHour * 1000 * 60 * 60;
 
+    if(!inputSec && !inputMin && !inputHour ){
+        alert("Timer will not start until user enters valid numbers!");
+    }
     console.log(timerSec + " + " + timerMin + " + " + timerHour);
+
+    
+
+
 });
 
 // let html = "";
