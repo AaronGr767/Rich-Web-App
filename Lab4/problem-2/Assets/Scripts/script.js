@@ -15,11 +15,15 @@ fromEvent(start_btn, 'click').subscribe(() => {
 
     if(!inputSec){
         inputSec = 0;
-    }else if(!inputMin){
+    };
+    
+    if(!inputMin){
         inputMin = 0;
-    }else if(!inputHour){
+    };
+    
+    if(!inputHour){
         inputHour = 0;
-    }
+    };
     
     if(!inputSec && !inputMin && !inputHour ){
         alert("Timer will not start until user enters valid numbers!");
