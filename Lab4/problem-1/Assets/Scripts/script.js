@@ -3,8 +3,8 @@ const { fromEvent } = rxjs;
 const create_btn = document.getElementById('create-note-button');
 const add_btn = document.getElementById('add-note-button');
 
-const observeCreate = fromEvent(create_btn, 'click');
-const observeAdd = fromEvent(add_btn, 'click');
+// const observeCreate = fromEvent(create_btn, 'click');
+// const observeAdd = fromEvent(add_btn, 'click');
 
 // const subscription = observeCreate.subscribe({
 //     next: createFunction
@@ -17,7 +17,7 @@ document.querySelector("form").reset();
 
 showNotes();
 
-const subscriptionAdd = observeCreate.subscribe(event => {
+fromEvent(create_btn, 'click').subscribe(() => {
     let formVisibilty = document.getElementById('NoteCreationPopUp');
 
     if (formVisibilty.style.display == 'none') {
@@ -26,11 +26,10 @@ const subscriptionAdd = observeCreate.subscribe(event => {
         formVisibilty.style.display = 'none';
     }
 
-    subscriptionAdd.unsubscribe();
 });
 
 
-const subscriptionCreate = observeAdd.subscribe(event => {
+fromEvent(add_btn, 'click').subscribe(() => {
     let name = document.getElementById('name');
     let content = document.getElementById('content');
     let colours = document.getElementById('colours');
@@ -60,7 +59,6 @@ const subscriptionCreate = observeAdd.subscribe(event => {
     let formVisibilty = document.getElementById('NoteCreationPopUp');
     formVisibilty.style.display = 'none';
 
-    subscriptionCreate.unsubscribe();
     showNotes();
 });
 
