@@ -2,6 +2,8 @@ const { fromEvent } = rxjs;
 
 const create_btn = document.getElementById('create-note-button');
 const add_btn = document.getElementById('add-note-button');
+// const edit_btn = document.getElementsByClassName('edit-note-button');
+
 
 
 let formVisibilty = document.getElementById('NoteCreationPopUp');
@@ -73,14 +75,23 @@ function showNotes() {
                         <p class="NameText">${element.noteName}</p>
                         <p class="ContentText">${element.noteContent}</p>
                     </div>
-                    <button id="${index}"onclick="editNote(this.id)" class="edit-note-button">Edit Note</button>
-		            <button id="${index}"onclick="deleteNote(this.id)" class="delete-note-button">Delete Note</button>
+                    <button id="${index}" onclick="editNote(this.id)" class="edit-note-button">Edit Note</button>
+		            <button id="${index}" onclick="deleteNote(this.id)" class="delete-note-button">Delete Note</button>
 	            </div>`;
+
+
+                // const edit_btn = document.getElementById(index);
+                // fromEvent(edit_btn, 'click').subscribe(() => editNote(index));
+                       
     });
-    
+
+    // fromEvent(edit_btn, 'click').subscribe(() => {editNote(this.id)});
     let noteHTML = document.getElementById("DisplayedNotesArea");
     noteHTML.innerHTML = html;
-}
+};
+
+//  fromEvent(edit_btn, 'click').subscribe(() => editNote(id));
+
 
 function editNote(index) {
     let formVisibilty = document.getElementById('NoteCreationPopUp');
