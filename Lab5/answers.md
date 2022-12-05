@@ -45,7 +45,7 @@ Disadvantage:
 
 --Problem 4 : With the aid of a diagram and example code, describe the Cascading Style Sheets (CSS) Box Model and show how it can be used to space DOM elements.
 
-(https://www.kasandbox.org/programming-images/misc/boxmodel.png)
+!(https://www.kasandbox.org/programming-images/misc/boxmodel.png)
 
 Content: This represents the content in the box. For this example I will use a div to represent the content.
 
@@ -53,9 +53,11 @@ Content: This represents the content in the box. For this example I will use a d
 
 Padding: This is used to clear a set area around the content. The example below sets a padding of 20 pixels around the entire div.
 
-`div{`
-` padding: 20px;`
-`}`
+```
+div{
+ padding: 20px;`
+}
+```
 
 Border: This sets a border around the padding & content. The example below will create a solid black 15 pixel border around the edge of the padding.
 
