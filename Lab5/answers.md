@@ -31,9 +31,17 @@ Functor Example:
 
 --Problem 3 : We have looked at three kinds of asynchronous programming mechanisms,namely callbacks, promises and streams. Mention one advantage and one disadvantage of each type.
 
-Callbacks:
-Promises:
-Streams:
+--Callbacks
+Advantage: Ideal for use if a request needs to be made which will take a long time (e.g. reading data from a network) as the the callback function is stored for subsequent execution the moment the request is made while the program can still proceed in the meantime. 
+Disadvantage: If there is to be 2 asynchronous requests and the 2nd is to made after completion of the 1st then the 2nd request must be made with the 1st requests callback logic. This leads to nested callbacks which are difficult to debug and handle error cases.
+
+--Promises
+Advantage:
+Disadvantage:
+
+-Streams
+Advantage:
+Disadvantage:
 
 --Problem 4 : With the aid of a diagram and example code, describe the Cascading Style Sheets (CSS) Box Model and show how it can be used to space DOM elements.
 
