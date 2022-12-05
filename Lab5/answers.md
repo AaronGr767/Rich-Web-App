@@ -4,22 +4,26 @@ In terms of React, props represent the data being passed into a React component.
 
 Prop Example:
 
-`function User(props) {`
-`  return <h2>Hello, { props.name }!</h2>;`
-`}`
+```
+function User(props) {
+  return <h2>Hello, { props.name }!</h2>;
+}
 
-`const myexample = <User name="Aaron" />;`
+const myexample = <User name="Aaron" />;
 
-`ReactDOM.render(myexample, document.getElementById('root'));`
+ReactDOM.render(myexample, document.getElementById('root'));
+```
 
 Whereas state refers to a buil-in react object that contains data/info about a specific component. A component’s state can change over time and whenever it changes, the component re-renders.
 
 State Example:
 
-`stateExample(){`
-`    this.setState({name:"Aaron"})`
-`    return(this.state.name) //This would return Aaron`
-`}`
+```
+stateExample(){
+  this.setState({name:"Aaron"})
+  return(this.state.name) //This would return Aaron
+}
+```
 
 --Problem 2 : In functional programming, what does the term functor mean? Can you give an example in JavaScript?
 
@@ -27,7 +31,9 @@ A functor is a data structure that can support a mapping operation and takes one
 
 Functor Example:
 
-`[1, 2, 3].map(val => val * 2); //generates [2, 4, 6]`
+```
+[1, 2, 3].map(val => val * 2); //generates [2, 4, 6]
+```
 
 --Problem 3 : We have looked at three kinds of asynchronous programming mechanisms,namely callbacks, promises and streams. Mention one advantage and one disadvantage of each type.
 
@@ -49,25 +55,31 @@ Disadvantage:
 
 Content: This represents the content in the box. For this example I will use a div to represent the content.
 
-`<div></div>`
+```
+<div></div>
+```
 
 Padding: This is used to clear a set area around the content. The example below sets a padding of 20 pixels around the entire div.
 
 ```
 div{
- padding: 20px;`
+ padding: 20px;
 }
 ```
 
 Border: This sets a border around the padding & content. The example below will create a solid black 15 pixel border around the edge of the padding.
 
-`div{`
-` border: 15px solid black`
-`}`
+```
+div{
+  border: 15px solid black
+}
+```
 
 Margin: This clears an area outside of the border based on a set value. The example below sets a margin of 20 pixels around the border.
 
-`div{`
-` margin: 15px`
-`}`
+```
+div{
+  margin: 15px
+}
+```
 --Problem 5 : Detail how the browser loads and bootstraps a rich web application from an initial URL.
