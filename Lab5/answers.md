@@ -13,6 +13,7 @@ const myexample = <User name="Aaron" />;
 ReactDOM.render(myexample, document.getElementById('root'));
 
 Whereas state refers to a buil-in react object that contains data/info about a specific component. A component’s state can change over time and whenever it changes, the component re-renders.
+
 State Example:
 
 stateExample(){
@@ -22,7 +23,11 @@ stateExample(){
 
 --Problem 2 : In functional programming, what does the term functor mean? Can you give an example in JavaScript?
 
-A functor
+A functor is a data structure that can support a mapping operation and takes one or more other modules as a parameter. Functors are created by using the map() function which will generate another object instance of the same type and connections.
+
+Functor Example:
+
+[1, 2, 3].map(val => val * 2); //generates [2, 4, 6]
 
 --Problem 3 : We have looked at three kinds of asynchronous programming mechanisms,namely callbacks, promises and streams. Mention one advantage and one disadvantage of each type.
 
