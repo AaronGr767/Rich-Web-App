@@ -43,11 +43,11 @@ Disadvantage: If there is to be 2 asynchronous requests and the 2nd is to made a
 
 --Promises
 Advantage: Unlike callbacks, promises are composable which allows them to avoid the issue that nested callbacks face.
-Disadvantage: They are unable to hold data sources that provid more than 1 value such as mouse movement.
+Disadvantage: They are slower than traditional callbacks as they can only operate on a single value at a time.
 
 -Streams
 Advantage: Very memory efficient, removes the need to load a large amount of data in memory before processing the data.
-Disadvantage:
+Disadvantage: As stream receives more data, more memory of the application is required and consumed which can grow exponentially.
 
 --Problem 4 : With the aid of a diagram and example code, describe the Cascading Style Sheets (CSS) Box Model and show how it can be used to space DOM elements.
 
