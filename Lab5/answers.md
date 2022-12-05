@@ -51,7 +51,7 @@ Disadvantage:
 
 --Problem 4 : With the aid of a diagram and example code, describe the Cascading Style Sheets (CSS) Box Model and show how it can be used to space DOM elements.
 
-!(https://www.kasandbox.org/programming-images/misc/boxmodel.png)
+![Box Model Image](https://www.kasandbox.org/programming-images/misc/boxmodel.png)
 
 Content: This represents the content in the box. For this example I will use a div to represent the content.
 
@@ -82,4 +82,7 @@ div{
   margin: 15px
 }
 ```
+
 --Problem 5 : Detail how the browser loads and bootstraps a rich web application from an initial URL.
+
+First, the user navigates to a URL in their browser of choice. The browser then navigates to the Domain Name Service (DNS) which essentially serves as an address book that tells where the website is. The browser then makes a TCP/IP connection to the server IP address and designated port for the website's URL. These protocols basically function to tell the browser where the files to load the website are located in the server. An application server (or HTTP proxy) is listening at the server IP address and accepts the browser connection. The browser is now able to send a HTTP request over the open TCP/IP connection. The application server then parses this HTTP request and responds accordingly back over the same connection, delivering the content required.
