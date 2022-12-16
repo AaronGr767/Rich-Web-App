@@ -1,5 +1,27 @@
+import NotesList from "./components/NotesList";
+import {useState} from 'react';
+import {nanoid} from 'nanoid';
+
 const App = () => {
-  return <p>Test</p>;
+  const [notes, setNotes] = useState([{
+    id: nanoid(),
+    name: "Example1",
+    desc: "Hello There!"
+  },{
+    id: nanoid(),
+    name: "Example2",
+    desc: "Hello There Again!"
+  },{
+    id: nanoid(),
+    name: "Example3",
+    desc: "Hello There Once Again!"
+  }])
+
+  return (
+    <div className="container">
+      <NotesList notes={notes}/>
+    </div>
+  );
 };
 
 // import logo from './logo.svg';

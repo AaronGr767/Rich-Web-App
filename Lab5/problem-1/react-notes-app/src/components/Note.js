@@ -1,5 +1,5 @@
-const Note = ([name, desc, color, handleEditNote, handleDeleteNote]) => {
-    return<div className="note">
+const Note = ({id, name, desc, handleEditNote, handleDeleteNote}) => {
+    return(<div className="note">
         <div class="DisplayedNote">
             <div class="DisplayedNoteContent">
                 <p class="NameText">{name}</p>
@@ -9,7 +9,8 @@ const Note = ([name, desc, color, handleEditNote, handleDeleteNote]) => {
 		    <button onclick={() => handleDeleteNote} class="delete-note-button">Delete Note</button>
 	    </div>
     </div>
-}
+    );
+};
 
 
 export default Note;
