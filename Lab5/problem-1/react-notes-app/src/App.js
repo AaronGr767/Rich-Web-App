@@ -8,10 +8,24 @@ const App = () => {
 
   const[visible,setisvisible] = useState(false);
 
-  const create_note = () => {console.log("Create note")}
+  const createNote = event => {
+    console.log("Create note")
+    setisvisible(!visible);
+  }
   
-  const addNote = () => {
+  const addNote = (name, description) => {
     console.log("adding note!")
+    console.log(name + " - " + description)
+    
+    const newNote = {
+      id:nanoid(),
+      name: name,
+      description: description
+    }
+
+    const newNotes = [...notes, newNote];
+    console.log("Note array - " + newNotes.id + newNotes.name + newNote.description)
+    setNotes(newNotes)
   }
 
   return (
@@ -20,11 +34,11 @@ const App = () => {
     <div class="Wrapper">
         <h1>Problem 1 - Note Taking App in React JS</h1>
         
-            <button id="create-note-button" onClick={create_note}>Click here to create a note!</button>
+            <button id="create-note-button">Click here to create a note!</button>
     </div>
     </div>
-
-    <AddNote/>    
+    {!visible && <AddNote setisvisble={createNote} handleAddNote={addNote}/>}
+        
 
     <div className="container">
       <NotesList notes={notes}/>

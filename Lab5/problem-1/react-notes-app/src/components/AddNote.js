@@ -1,6 +1,24 @@
-export default function AddNote(){
-    const save_note = () => {
-        console.log("Saved note: smileyface767");
+import { useState } from "react";
+
+const AddNote = ({handleAddNote}) =>{
+
+    const [noteName, setNoteName] = useState("");
+    const [noteDesc, setNoteDesc] = useState("");
+
+    const handleNameChange = (event) => {
+        setNoteName(event.target.value)
+        console.log("Tester1 - " + noteName)
+    }
+
+    const handleDescChange = (event) => {
+        
+        setNoteDesc(event.target.value)
+        console.log("Tester2 - " + noteDesc)
+    }
+
+    const handleSaveNote = () => {
+        console.log("Saved note success");
+        handleAddNote(noteName,noteDesc)   
     }
 
     return(
@@ -9,9 +27,9 @@ export default function AddNote(){
                 <div id="NoteCreationContent">
                     <form>
                     <label for="name">Note Name:</label>
-                    <input name="name" id="name" type="text" placeholder="Name your note!" required></input>
+                    <input name="name" id="name" value={noteName} onChange={handleNameChange} type="text" placeholder="Name your note!" required></input>
                     <label for="content">Note Content:</label>
-                    <textarea name="content" id="content" rows="10" placeholder="Your notes go here!" required></textarea>
+                    <textarea name="content" id="content" value={noteDesc} onChange={handleDescChange} rows="10" placeholder="Your notes go here!" required></textarea>
                     <label for="colours">Note Colours:</label>
                     <select name="colours" id="colours">
                         <option value="palevioletred">Red</option>
@@ -20,10 +38,12 @@ export default function AddNote(){
                     </select>
                 </form>
                     <div id="SaveNote">
-                        <button id="add-note-button" onClick={save_note}>Save Note</button>
+                        <button id="add-note-button" onClick={handleSaveNote}>Save Note</button>
                     </div>
                 </div>   
             </div>     
     </div>
     )
 }
+
+export default AddNote;
