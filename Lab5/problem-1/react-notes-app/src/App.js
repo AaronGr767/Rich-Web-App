@@ -54,7 +54,7 @@ const App = () => {
             <button id="create-note-button" onClick={createNote}>Click here to create a note!</button>
     </div>
     </div>
-    {visible && <AddNote setisvisble={createNote} handleAddNote={addNote}/>}
+    {visible && <AddNote setisvisible={createNote} handleAddNote={addNote}/>}
         
 
     <div className="container">

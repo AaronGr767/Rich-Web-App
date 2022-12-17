@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddNote = ({handleAddNote}) =>{
+const AddNote = ({setisvisible, handleAddNote}) =>{
 
     const [noteName, setNoteName] = useState("");
     const [noteDesc, setNoteDesc] = useState("");
@@ -25,6 +25,7 @@ const AddNote = ({handleAddNote}) =>{
 
     const handleSaveNote = () => {
         console.log("Saved note success");
+        setisvisible(false);
         handleAddNote(noteName, noteDesc, noteColour)
   
     }
