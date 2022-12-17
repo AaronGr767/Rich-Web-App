@@ -4,6 +4,8 @@ const AddNote = ({handleAddNote}) =>{
 
     const [noteName, setNoteName] = useState("");
     const [noteDesc, setNoteDesc] = useState("");
+    const [noteColour, setNoteColour] = useState("palevioletred");
+    
 
     const handleNameChange = (event) => {
         setNoteName(event.target.value)
@@ -16,9 +18,15 @@ const AddNote = ({handleAddNote}) =>{
         console.log("Tester2 - " + noteDesc)
     }
 
+    const handleColourChange = (event) => {
+        setNoteColour(event.target.value)
+        console.log("Tester3 - " + noteColour)
+    } 
+
     const handleSaveNote = () => {
         console.log("Saved note success");
-        handleAddNote(noteName,noteDesc)   
+        handleAddNote(noteName, noteDesc, noteColour)
+  
     }
 
     return(
@@ -31,7 +39,7 @@ const AddNote = ({handleAddNote}) =>{
                     <label for="content">Note Content:</label>
                     <textarea name="content" id="content" value={noteDesc} onChange={handleDescChange} rows="10" placeholder="Your notes go here!" required></textarea>
                     <label for="colours">Note Colours:</label>
-                    <select name="colours" id="colours">
+                    <select name="colours" id="colours" value={noteColour} onChange={handleColourChange}>
                         <option value="palevioletred">Red</option>
                         <option value="palegreen">Green</option>
                         <option value="paleturquoise">Blue</option>

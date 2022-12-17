@@ -13,18 +13,19 @@ const App = () => {
     setisvisible(!visible);
   }
   
-  const addNote = (name, description) => {
+  const addNote = (name, description, colour) => {
     console.log("adding note!")
     console.log(name + " - " + description)
     
     const newNote = {
       id:nanoid(),
       name: name,
-      description: description
+      description: description,
+      colour: colour
     }
 
     const newNotes = [...notes, newNote];
-    console.log("Note array - " + newNotes.id + newNotes.name + newNote.description)
+    console.log("Note array - " + newNote.id + newNote.name + newNote.description + newNote.colour)
     setNotes(newNotes)
   }
 

@@ -1,7 +1,7 @@
 
-const Note = ({id, name, description, handleEditNote, handleDeleteNote}) => {
+const Note = ({id, name, description, colour, handleEditNote, handleDeleteNote}) => {
     return(<div className="note">
-        <div class="DisplayedNote">
+        <div className="DisplayedNote" style={{backgroundColor: colour}}>
             <div class="DisplayedNoteContent">
                 <p class="NameText">{name}</p>
                 <p class="ContentText">{description}</p>
