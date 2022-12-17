@@ -1,12 +1,18 @@
 import NotesList from "./components/NotesList";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {nanoid} from 'nanoid';
 import AddNote from "./components/AddNote";
 
 const App = () => {
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState(() => {
+    const storedNotes = JSON.parse(localStorage.getItem('notes-store'));
+    return storedNotes || []; 
+
+  });
 
   const[visible,setisvisible] = useState(false);
+
+  
 
   const createNote = () => {
     console.log("Create note")
@@ -33,6 +39,11 @@ const App = () => {
 		const newNotes = notes.filter((note) => note.id !== id);
 		setNotes(newNotes);
 	};
+
+  useEffect(() => {
+
+    localStorage.setItem('notes-store', JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <>
