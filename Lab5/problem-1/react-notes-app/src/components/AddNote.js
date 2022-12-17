@@ -34,11 +34,11 @@ const AddNote = ({handleAddNote}) =>{
         <div id="NoteCreationPopUp">
                 <div id="NoteCreationContent">
                     <form>
-                    <label for="name">Note Name:</label>
+                    <label htmlFor="name">Note Name:</label>
                     <input name="name" id="name" value={noteName} onChange={handleNameChange} type="text" placeholder="Name your note!" required></input>
-                    <label for="content">Note Content:</label>
+                    <label htmlFor="content">Note Content:</label>
                     <textarea name="content" id="content" value={noteDesc} onChange={handleDescChange} rows="10" placeholder="Your notes go here!" required></textarea>
-                    <label for="colours">Note Colours:</label>
+                    <label htmlFor="colours">Note Colours:</label>
                     <select name="colours" id="colours" value={noteColour} onChange={handleColourChange}>
                         <option value="palevioletred">Red</option>
                         <option value="palegreen">Green</option>

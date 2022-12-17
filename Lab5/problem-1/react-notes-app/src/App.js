@@ -8,7 +8,7 @@ const App = () => {
 
   const[visible,setisvisible] = useState(false);
 
-  const createNote = event => {
+  const createNote = () => {
     console.log("Create note")
     setisvisible(!visible);
   }
@@ -37,13 +37,13 @@ const App = () => {
   return (
     <>
     <div>
-    <div class="Wrapper">
+    <div className="Wrapper">
         <h1>Problem 1 - Note Taking App in React JS</h1>
         
-            <button id="create-note-button">Click here to create a note!</button>
+            <button id="create-note-button" onClick={createNote}>Click here to create a note!</button>
     </div>
     </div>
-    {!visible && <AddNote setisvisble={createNote} handleAddNote={addNote}/>}
+    {visible && <AddNote setisvisble={createNote} handleAddNote={addNote}/>}
         
 
     <div className="container">
