@@ -6,8 +6,8 @@ const Note = ({id, name, description, handleEditNote, handleDeleteNote}) => {
                 <p class="NameText">{name}</p>
                 <p class="ContentText">{description}</p>
             </div>
-            <button onclick={() => handleEditNote(id)} class="edit-note-button">Edit Note</button>
-		    <button onclick={() => handleDeleteNote(id)} class="delete-note-button">Delete Note</button>
+            <button onClick={() => handleEditNote(id)} class="edit-note-button">Edit Note</button>
+		    <button onClick={() => handleDeleteNote(id)} class="delete-note-button">Delete Note</button>
 	    </div>
     </div>
     );
