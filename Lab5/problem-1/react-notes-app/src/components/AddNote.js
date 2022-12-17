@@ -6,14 +6,24 @@ const AddNote = ({setisvisible, handleAddNote}) =>{
     const [noteDesc, setNoteDesc] = useState("");
     const [noteColour, setNoteColour] = useState("palevioletred");
     
+    const[check1,setCheck1] = useState(false);
+    const[check2,setCheck2] = useState(false);
+
+    // let check1 = false;
+    // let check2 = false;
+
+    console.log("fuck it" + check1)
+    
 
     const handleNameChange = (event) => {
+        setCheck1(true)
+        console.log("fuck it" + check1)
         setNoteName(event.target.value)
         console.log("Tester1 - " + noteName)
     }
 
     const handleDescChange = (event) => {
-        
+        setCheck2(true)
         setNoteDesc(event.target.value)
         console.log("Tester2 - " + noteDesc)
     }
@@ -24,10 +34,15 @@ const AddNote = ({setisvisible, handleAddNote}) =>{
     } 
 
     const handleSaveNote = () => {
-        console.log("Saved note success");
-        setisvisible(false);
-        handleAddNote(noteName, noteDesc, noteColour)
-  
+        console.log(check1 + check2)
+        if(check1 === true && check2 === true){
+            console.log("Saved note success");
+            setisvisible(false);
+            handleAddNote(noteName, noteDesc, noteColour)
+        }else {
+            console.log(check1 + check2)
+            alert("Please fill in all fields first!")
+        }
     }
 
     return(
